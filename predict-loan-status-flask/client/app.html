@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Status Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="../client/app.js"></script> -->
+	<!-- <link rel="stylesheet" href="../client/app.css"> -->
+	<script src="{{ url_for('static',filename='app.js') }}"></script>
+	<link rel="stylesheet"  href= "{{ url_for('static',filename='app.css') }}"> 
+</head>
+<body>
+<div class="img"></div>
+<form class="form" method="POST">
+	<h2>ApplicantIncome</h2>
+
+    <input class="area"  type="text" id="uiappinc" class="floatLabel" name="ApplicantIncome" value="1000">
+    <h2>CoApplicant Income</h2>
+    <input class="area"  type="text" id="uicoappinc" class="floatLabel" name="CoApplicantIncome" value="1000">
+    <h2>Loan Amount</h2>
+    <input class="area"  type="text" id="uiloanamt" class="floatLabel" name="LoanAmount" value="1000">
+	<h2>Gender</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-gender-male" name="uiGender" value="Gender_Male"/>
+		<label for="radio-gender-male">Male</label>
+		<input type="radio" id="radio-gender-female" name="uiGender" value="Gender_Female" checked/>
+		<label for="radio-gender-female">Female</label>	
+	</div>
+	</form>
+
+		
+<form class="form" method="POST">
+	<h2>Married</h2>
+	<div class="switch-field">
+		
+		<input type="radio" id="radio-married-yes" name="uiMarried" value="Married_Yes" checked/>
+		<label for="radio-married-yes">Yes</label>
+		<input type="radio" id="radio-married-no" name="uiMarried" value="Married_No"/>
+		<label for="radio-married-no">No</label>
+	
+	</div>
+</form>
+
+	<form class="form" method="POST">
+	<h2>Number of Dependents</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-dep-0" name="uiDependents" value="Dependents_0"/>
+		<label for="radio-dep-0">0</label>
+		<input type="radio" id="radio-dep-1" name="uiDependents" value="Dependents_1" checked/>
+		<label for="radio-dep-1">1</label>
+		<input type="radio" id="radio-dep-2" name="uiDependents" value="Dependents_2"/>
+		<label for="radio-dep-2">2</label>
+		<input type="radio" id="radio-dep-3" name="uiDependents" value="Dependents_3+"/>
+		<label for="radio-dep-3">3+</label>
+		
+	</div>
+</form>
+
+<form class="form" method="POST">
+	<h2>Education - Graduate</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-edu-0" name="uiEdu" value="Education_Graduate"/>
+		<label for="radio-edu-0">Graduate</label>
+		<input type="radio" id="radio-edu-1" name="uiEdu" value="Education_Not Graduate" checked/>
+		<label for="radio-edu-1">Not Graduate</label>	
+		
+	</div>
+</form>
+
+<form class="form" method="POST">
+	<h2>Self Employed</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-emp-0" name="uiEmp" value="Self_Employed_No"/>
+		<label for="radio-emp-0">No</label>
+		<input type="radio" id="radio-emp-1" name="uiEmp" value="Self_Employed_Yes" checked/>
+		<label for="radio-emp-1">Yes</label>	
+		
+	</div>
+</form>
+
+
+
+<form class="form" method="POST">
+	<h2>Loan Amount Term</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-lat-0" name="uiLat" value="Loan_Amount_Term_12.0"/>
+		<label for="radio-lat-0">12</label>
+		<input type="radio" id="radio-lat-1" name="uiLat" value="Loan_Amount_Term_36.0" checked/>
+		<label for="radio-lat-1">36</label>
+		<input type="radio" id="radio-lat-2" name="uiLat" value="Loan_Amount_Term_60.0"/>
+		<label for="radio-lat-2">60</label>
+		<input type="radio" id="radio-lat-3" name="uiLat" value="Loan_Amount_Term_84.0" />
+		<label for="radio-lat-3">84</label>
+		<input type="radio" id="radio-lat-4" name="uiLat" value="Loan_Amount_Term_120.0"/>
+		<label for="radio-lat-4">120</label>
+		<input type="radio" id="radio-lat-5" name="uiLat" value="Loan_Amount_Term_180.0" />
+		<label for="radio-lat-5">180</label>
+
+		<input type="radio" id="radio-lat-6" name="uiLat" value="Loan_Amount_Term_240.0"/>
+		<label for="radio-lat-6">240</label>
+		<input type="radio" id="radio-lat-7" name="uiLat" value="Loan_Amount_Term_300.0" />
+		<label for="radio-lat-7">300</label>
+		<input type="radio" id="radio-lat-8" name="uiLat" value="Loan_Amount_Term_360.0"/>
+		<label for="radio-lat-8">360</label>
+		<input type="radio" id="radio-lat-9" name="uiLat" value="Loan_Amount_Term_480.0" />
+		<label for="radio-lat-9">480</label>
+		
+		
+	</div>
+</form>
+
+
+
+<form class="form" method="POST">
+	<h2>Credit History</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-crh-0" name="uiCredit" value="Credit_History_0.0"/>
+		<label for="radio-crh-0">0</label>
+		<input type="radio" id="radio-crh-1" name="uiCredit" value="Credit_History_1.0" checked/>
+		<label for="radio-crh-1">1</label>	
+		
+	</div>
+</form>
+
+
+<form class="form" method="POST">
+	<h2>Property Area</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-prop-0" name="uiProperty" value="Property_Area_Rural"/>
+		<label for="radio-prop-0">Rural</label>
+		<input type="radio" id="radio-prop-1" name="uiProperty" value="Property_Area_Semiurban" checked/>
+		<label for="radio-prop-1">Semi Urban</label>
+		<input type="radio" id="radio-prop-2" name="uiProperty" value="Property_Area_Urban" checked/>
+		<label for="radio-prop-2">Urban</label>	
+		
+	</div>
+		
+	<button class="submit" onclick="onClickedLoanStatus()" type="button">Loan Status</button>
+	</form>
+
+
+	<div id="uiLoanStatus" class="result">	<h2></h2> </div>
+<div>
+	<h2>End of the page</h2>
+</div>
+</body>
+</html>
